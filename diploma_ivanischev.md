@@ -260,7 +260,7 @@ KVM (Kernel-based Virtual Machine) – это программное решение, обеспечивающее
 позволяет запустить одновременно множество гостевых операционных систем (сколько?). 
 Каждая из них будет определяться своим qemu-процессом на host-платформе.
 
-https://github.com/vasiliy249/diploma/blob/master/pictures/qemuKVM/qemuprocesses.png
+![QemuProcesses](https://github.com/vasiliy249/diploma/blob/master/pictures/qemuKVM/qemuprocesses.png)
 
 Когда гостевая операционная система выключается, процесс Qemu завершается. 
 Перезагрузка гостевой ОС выполняется без перезапуска процесса Qemu.
@@ -268,7 +268,7 @@ https://github.com/vasiliy249/diploma/blob/master/pictures/qemuKVM/qemuprocesses
 После того, как запускается Qemu, выделяется оперативная память виртуальной машины. 
 Она отображена в адресном пространстве процесса Qemu и выступает в роли «физической» для гостевой ОС.
 
-https://github.com/vasiliy249/diploma/blob/master/pictures/qemuKVM/GuestMem.png
+![GuestMem](https://github.com/vasiliy249/diploma/blob/master/pictures/qemuKVM/GuestMem.png)
 
 Виртуальная память гостевой ОС в свою очередь отображается на вышеупомянутую 
 «физическую», как и в самом обычном случае стандартной операционной системы. 
@@ -276,7 +276,7 @@ https://github.com/vasiliy249/diploma/blob/master/pictures/qemuKVM/GuestMem.png
 Также стоит рассмотреть случай нескольких виртуальных машин. 
 У каждой будет своя «физическая память» которая будет отображена на одну память – память host-платформы.
 
-https://github.com/vasiliy249/diploma/blob/master/pictures/qemuKVM/MultGuestMemMap.png
+![MultGuestMemMap](https://github.com/vasiliy249/diploma/blob/master/pictures/qemuKVM/MultGuestMemMap.png)
 
 Qemu поддерживает оба порядка записи байтов целевой (на англ. target) архитектуры – как от старшего 
 к младшему (на англ. big-endian или «тупоконечный»), так и от младшего к старшему 
@@ -331,11 +331,11 @@ Apache также используют ресурсы host’a как и Qemu, хотя ресурсы можно распредели
 Выделенный поток ввода/вывода запускает цикл событий для обработки таких процессов, как 
 сетевые соединения, завершение ввода/вывода информации с диска и т. п.  
 
-https://github.com/vasiliy249/diploma/blob/master/pictures/qemuKVM/VCPUs.png
+![VCPUs vm](https://github.com/vasiliy249/diploma/blob/master/pictures/qemuKVM/VCPUs.png)
 
 Следующая схема иллюстрирует, как виден Qemu процесс для host-платформы: 
 
-https://github.com/vasiliy249/diploma/blob/master/pictures/qemuKVM/QemuProcHost.png
+![QemuProcHost](https://github.com/vasiliy249/diploma/blob/master/pictures/qemuKVM/QemuProcHost.png)
 
 После того, как известны общие принципы работы Qemu/KVM, необходимо преступить к проектированию 
 программно-аппаратного комплекса. 
@@ -360,12 +360,12 @@ libvirt, которая, в свою очередь, используя непосредственно команды гипервизора 
 с гостевой ОС происходит через гипервизор. Таким образом, такая система будет корректной с 
 точки зрения компьютерной криминалистического анализа.
 
-https://github.com/vasiliy249/diploma/blob/master/pictures/model2.jpg
+![modelNow](https://github.com/vasiliy249/diploma/blob/master/pictures/model2.jpg)
 
 Разумеется, хотелось бы получить доступ к физической памяти виртуальных машин напрямую 
 с host-платформы, не используя никаких «прослоек», но, на первом этапе работы используется данный способ.
 
-https://github.com/vasiliy249/diploma/blob/master/pictures/model3.jpg
+![modelfuture](https://github.com/vasiliy249/diploma/blob/master/pictures/model3.jpg)
 
 В дальнейшем планируется проанализировать устройство отображения памяти гостевых ОС 
 на память host-платформы, и, таким образом, получить доступ к физической памяти напрямую.
