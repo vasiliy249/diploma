@@ -258,11 +258,11 @@ for (;;) {
 
 Следует заметить, что все действия производятся неинвазивно, поскольку всё взаимодействие с гостевой ОС происходит через гипервизор. Поэтому такая система будет корректной с точки зрения компьютерно-криминалистического анализа.
 
-![modelNow](https://github.com/vasiliy249/diploma/blob/master/pictures/model2.jpg)
+![modelNow](https://github.com/vasiliy249/diploma/blob/master/pictures/model.jpg)
 
 Разумеется, хотелось бы получить доступ к физической памяти виртуальных машин напрямую с host-платформы, не используя никаких «прослоек», но, на первом этапе работы используется данный способ.
 
-![modelfuture](https://github.com/vasiliy249/diploma/blob/master/pictures/model3.jpg)
+![modelfuture](https://github.com/vasiliy249/diploma/blob/master/pictures/modelFuture.jpg)
 
 В дальнейшем планируется проанализировать устройство отображения памяти гостевых ОС на память host-платформы, и, таким образом, получить доступ к физической памяти target-платформы непосредственно.
 
